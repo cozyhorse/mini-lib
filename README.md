@@ -1,2 +1,2 @@
 # mini-lib
-Test
+School assignment
