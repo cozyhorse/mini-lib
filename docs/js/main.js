@@ -1,4 +1,5 @@
 import { getBooks } from "./fetchdata.js";
+import { gradient } from "./creategradient.js";
 const wrapper = document.querySelector(".bookshelf");
 const title = document.querySelector(".title");
 const infoBox = document.querySelector(".info");
@@ -29,7 +30,8 @@ const renderBooks = (input = "") => {
         book.classList.add(`book-${bookNumber++}`);
         book.classList.add(`book`);
         book.append(item.title);
-        book.style.background = item.color;
+        //book.style.background = item.color
+        gradient(item.color, book);
         wrapper?.append(book);
         //Make all books "clickable"
         book.addEventListener("click", () => {
@@ -59,7 +61,7 @@ const printData = (item) => {
     bookcoverTitle.textContent = item.title;
     bookcoverAuthor.textContent = item.author;
     if (item.pages == null) {
-        pages.textContent = "No available data";
+        pages.textContent = "Unknown";
     }
     else {
         pages.textContent = item.pages.toString();

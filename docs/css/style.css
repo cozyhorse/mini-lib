@@ -29,6 +29,13 @@ span{
     text-align: center;
 }
 
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .bookshelf{
     width: 80vw;
     height: 100vh;
@@ -41,8 +48,8 @@ span{
 
 .book{
     background: rgb(197, 200, 200);
-    width: 9.375rem;
-    height: 21.25rem;
+    width: 19.375rem;
+    height: 30.25rem;
     display: flex;
     text-align: center;
     align-items: center;
