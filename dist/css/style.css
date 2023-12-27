@@ -38,12 +38,6 @@ body{
 }
 
 
-.active{
-    transform: scale(1.2) skew(-4deg);
-    
-    
-}
-
 .info{
     width: 80vw;
     height: 80vh;
@@ -51,7 +45,7 @@ body{
     display: flex;
 }
 
-.bookcover{
+.book-cover{
     background: crimson;
     width: 50%;
     display: flex;
@@ -59,7 +53,7 @@ body{
 
 .fillerspace{
     width: 20%;
-    background: black;
+    border-right: solid 0.15rem black;
 }
 
 .names{
