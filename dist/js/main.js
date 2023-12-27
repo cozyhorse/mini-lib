@@ -1,5 +1,5 @@
 import { getBooks } from "./fetchdata.js";
-const wrapper = document.querySelector(".wrapper");
+const wrapper = document.querySelector(".bookshelf");
 const title = document.querySelector(".title");
 const infoBox = document.querySelector(".info");
 const closeBtn = document.querySelector(".close");
@@ -9,33 +9,44 @@ const audience = document.querySelector(".audience");
 const pages = document.querySelector(".pages");
 const firstPublished = document.querySelector(".first-published");
 const publisher = document.querySelector(".publisher");
-const readNowBtn = document.querySelector(".readnow");
 const bookcoverTitle = document.querySelector(".book-cover-title");
 const bookcoverAuthor = document.querySelector(".book-cover-author");
-const descriptionBox = document.querySelector(".description-box");
 const bookCover = document.querySelector(".book-cover");
 const fillerspace = document.querySelector(".fillerspace");
+const inputQuery = document.querySelector(".query");
+const searchfield = document.querySelector(".searchfield");
 let bookNumber = 1;
 const viewBooks = await getBooks();
-const printBooks = () => {
-    for (const [index, item] of viewBooks.entries()) {
+const renderBooks = (input = "") => {
+    const inputCleanup = input.trim().toLowerCase();
+    const filteredBook = viewBooks.filter((book) => {
+        const foundBook = book.title.toLowerCase().includes(inputCleanup);
+        return foundBook;
+    });
+    filteredBook.forEach((item) => {
+        console.log("item", item);
         const book = document.createElement("div");
         book.classList.add(`book-${bookNumber++}`);
         book.classList.add(`book`);
         book.append(item.title);
         book.style.background = item.color;
         wrapper?.append(book);
+        //Make all books "clickable"
         book.addEventListener("click", () => {
-            if (!book.classList.contains("active")) {
-                book.classList.add("active");
-                book.style.background = `${item.color}`;
-            }
+            setTimeout(() => {
+                if (!book.classList.contains("active")) {
+                    book.classList.add("active");
+                    book.style.background = `${item.color}`;
+                }
+                searchfield.classList.add("hide");
+                infoBox.classList.remove("hide");
+                printData(item);
+            }, 250);
             wrapper.classList.add("hide");
-            infoBox.classList.remove("hide");
-            printData(item);
         });
-    }
+    });
 };
+// Print info to HTML
 const printData = (item) => {
     fillerspace.style.background = `${item.color}`;
     bookCover.style.background = `${item.color}F9`;
@@ -54,11 +65,18 @@ const printData = (item) => {
         pages.textContent = item.pages.toString();
     }
 };
+//Close button.. Closing "info window"
 closeBtn.addEventListener("click", () => {
     const book = document.querySelector(".book.active");
     document.querySelector(".book.active")?.classList.remove("active");
     book.style.background = "";
     infoBox.classList.add("hide");
     wrapper.classList.remove("hide");
+    searchfield.classList.remove("hide");
 });
-printBooks();
+//Search input
+inputQuery.addEventListener("keyup", () => {
+    wrapper.innerHTML = "";
+    renderBooks(inputQuery.value);
+});
+renderBooks();

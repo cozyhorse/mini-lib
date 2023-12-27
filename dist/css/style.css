@@ -7,13 +7,30 @@
 body{
     background: rgb(68, 68, 68);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content:center;
+    gap: 1rem;
     
 }
 
-.wrapper{
+p,
+h1,
+h3,
+span{
+    color: antiquewhite;
+}
+
+.searchfield{
+    display: flex;
+    flex-direction: column;
+}
+
+.searchfield h4{
+    text-align: center;
+}
+
+.bookshelf{
+    width: 80vw;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -43,12 +60,14 @@ body{
     height: 80vh;
     position: absolute;
     display: flex;
+    gap: 1rem;
 }
 
 .book-cover{
-    background: crimson;
     width: 50%;
     display: flex;
+    border-right: solid black 0.1rem;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .fillerspace{
@@ -59,20 +78,18 @@ body{
 .names{
     align-self: flex-end;
     margin-left: 10.5rem;
-    
-    
+    height: 8rem;
+    line-height: 3rem;
 }
 
 .description-box{
     width: 60%;
-    background: rgb(87, 87, 87);
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
 .text-box{
-    background: salmon;
     height: 500px;
     padding: 10px;
     margin: 10px;
@@ -84,21 +101,41 @@ body{
 
 .plot{
     align-self: center;
+    line-height: 1.4rem;
+    letter-spacing: 0.1rem;
 }
 
 .close{
     width: 6.25rem;
+    background: rgb(184, 182, 182);
+    border: none;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
 }
 
 .stats-box{
-    background: green;
+    background: rgb(59, 59, 59);
     padding: 10px;
     margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.stats-box section{
+    flex: 1 300px;
+    text-align: center;
+    line-height: 1.5rem;
 }
 
 .readnow{
     width: 100px;
     align-self: center;
+    background: rgb(184, 182, 182);
+    border: none;
+    height: 1.4rem;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .hide{
