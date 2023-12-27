@@ -22,13 +22,10 @@ const printBooks = () => {
         book.append(item.title);
         wrapper?.append(book);
         book.addEventListener("click", () => {
+            // const activeBtn: Element | null = document.querySelector(".book.active");
             if (!book.classList.contains("active")) {
                 book.classList.add("active");
                 book.style.background = `${item.color}`;
-            }
-            else {
-                book.classList.remove("active");
-                book.style.background = "";
             }
             infoBox.classList.remove("hide");
             printData(item);
@@ -41,13 +38,21 @@ const printData = (item) => {
     author.textContent = item.author;
     plot.textContent = item.plot;
     audience.textContent = item.audience;
-    pages.textContent = item.pages;
-    firstPublished.textContent = item.year;
+    firstPublished.textContent = item.year.toString();
     publisher.textContent = item.publisher;
     bookcoverTitle.textContent = item.title;
     bookcoverAuthor.textContent = item.author;
+    if (item.pages == null) {
+        pages.textContent = "No available data";
+    }
+    else {
+        pages.textContent = item.pages.toString();
+    }
 };
 closeBtn.addEventListener("click", () => {
+    const book = document.querySelector(".book.active");
+    document.querySelector(".book.active")?.classList.remove("active");
+    book.style.background = "";
     infoBox.classList.add("hide");
 });
 printBooks();
