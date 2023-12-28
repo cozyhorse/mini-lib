@@ -1,5 +1,7 @@
 import { getBooks } from "./fetchdata.js";
 import { Book } from "./bookinterface.js";
+import { gradient } from "./gradient.js";
+
 
 const wrapper = document.querySelector(".bookshelf") as HTMLDivElement;
 const title = document.querySelector(".title") as HTMLElement;
@@ -34,7 +36,8 @@ const renderBooks = (input: string = ""): void => {
     book.classList.add(`book-${bookNumber++}`);
     book.classList.add(`book`);
     book.append(item.title);
-    book.style.background = item.color
+    //book.style.background = item.color
+    gradient(item.color, book);
     wrapper?.append(book);
     //Make all books "clickable"
     book.addEventListener("click", () => {
@@ -55,8 +58,7 @@ const renderBooks = (input: string = ""): void => {
 
 // Print info to HTML
 const printData = (item: Book): void => {
-  fillerspace.style.background = `${item.color}`;
-  bookCover.style.background = `${item.color}F9`;
+  gradient(item.color,bookCover);
   title.textContent = item.title;
   author.textContent = item.author;
   plot.textContent = item.plot;
