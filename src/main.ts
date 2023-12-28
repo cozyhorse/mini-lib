@@ -16,7 +16,6 @@ const publisher = document.querySelector(".publisher") as HTMLElement;
 const bookcoverTitle = document.querySelector(".book-cover-title") as HTMLElement;
 const bookcoverAuthor = document.querySelector(".book-cover-author") as HTMLElement;
 const bookCover = document.querySelector(".book-cover") as HTMLElement;
-const fillerspace = document.querySelector(".fillerspace") as HTMLElement;
 const inputQuery = document.querySelector(".query") as HTMLInputElement;
 const searchfield = document.querySelector(".searchfield") as HTMLDivElement;
 

@@ -13,7 +13,6 @@ const publisher = document.querySelector(".publisher");
 const bookcoverTitle = document.querySelector(".book-cover-title");
 const bookcoverAuthor = document.querySelector(".book-cover-author");
 const bookCover = document.querySelector(".book-cover");
-const fillerspace = document.querySelector(".fillerspace");
 const inputQuery = document.querySelector(".query");
 const searchfield = document.querySelector(".searchfield");
 let bookNumber = 1;
