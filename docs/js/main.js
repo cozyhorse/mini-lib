@@ -24,7 +24,6 @@ const renderBooks = (input = "") => {
         return foundBook;
     });
     filteredBook.forEach((item) => {
-        console.log("item", item);
         const book = document.createElement("div");
         book.classList.add(`book-${bookNumber++}`);
         book.classList.add(`book`);

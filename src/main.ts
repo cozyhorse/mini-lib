@@ -30,7 +30,6 @@ const renderBooks = (input: string = ""): void => {
   });
 
   filteredBook.forEach((item) => {
-    console.log("item", item);
     const book: HTMLDivElement = document.createElement("div");
     book.classList.add(`book-${bookNumber++}`);
     book.classList.add(`book`);

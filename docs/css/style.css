@@ -79,14 +79,23 @@ span{
 
 .fillerspace{
     width: 20%;
-    border-right: solid 0.15rem black;
+    border-right: solid 0.15rem rgb(35, 35, 35, 0.4);
 }
 
 .names{
     align-self: flex-end;
-    margin-left: 10.5rem;
+    margin: 0px 0 50px 159px;
     height: 8rem;
     line-height: 3rem;
+
+}
+
+.book-cover-title{
+    color: rgb(223, 220, 217, 0.9);
+}
+
+.book-cover-author{
+    color: rgb(223, 220, 217, 0.9);
 }
 
 .description-box{
