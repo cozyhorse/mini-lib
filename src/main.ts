@@ -2,7 +2,6 @@ import { getBooks } from "./fetchdata.js";
 import { Book } from "./bookinterface.js";
 import { gradient } from "./gradient.js";
 
-
 const wrapper = document.querySelector(".bookshelf") as HTMLDivElement;
 const title = document.querySelector(".title") as HTMLElement;
 const infoBox = document.querySelector(".info") as HTMLDivElement;
@@ -19,7 +18,6 @@ const bookCover = document.querySelector(".book-cover") as HTMLElement;
 const inputQuery = document.querySelector(".query") as HTMLInputElement;
 const searchfield = document.querySelector(".searchfield") as HTMLDivElement;
 
-let bookNumber: number = 1;
 const viewBooks = await getBooks();
 
 const renderBooks = (input: string = ""): void => {
@@ -31,7 +29,6 @@ const renderBooks = (input: string = ""): void => {
 
   filteredBook.forEach((item) => {
     const book: HTMLDivElement = document.createElement("div");
-    book.classList.add(`book-${bookNumber++}`);
     book.classList.add(`book`);
     book.append(item.title);
     //book.style.background = item.color
@@ -86,7 +83,5 @@ inputQuery.addEventListener("keyup", () => {
   wrapper.innerHTML = "";
   renderBooks(inputQuery.value);
 });
-
-
 
 renderBooks();

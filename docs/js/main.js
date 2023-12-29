@@ -15,7 +15,6 @@ const bookcoverAuthor = document.querySelector(".book-cover-author");
 const bookCover = document.querySelector(".book-cover");
 const inputQuery = document.querySelector(".query");
 const searchfield = document.querySelector(".searchfield");
-let bookNumber = 1;
 const viewBooks = await getBooks();
 const renderBooks = (input = "") => {
     const inputCleanup = input.trim().toLowerCase();
@@ -25,7 +24,6 @@ const renderBooks = (input = "") => {
     });
     filteredBook.forEach((item) => {
         const book = document.createElement("div");
-        book.classList.add(`book-${bookNumber++}`);
         book.classList.add(`book`);
         book.append(item.title);
         //book.style.background = item.color
