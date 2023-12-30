@@ -27,7 +27,7 @@ const renderBooks = (input: string = ""): void => {
     return foundBook;
   });
 
-  filteredBook.forEach((item) => {
+  filteredBook.forEach((item:Book) => {
     const book: HTMLDivElement = document.createElement("div");
     book.classList.add(`book`);
     book.append(item.title);
