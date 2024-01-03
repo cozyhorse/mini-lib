@@ -22,7 +22,7 @@ const viewBooks = await getBooks();
 
 const renderBooks = (input: string = ""): void => {
   const inputCleanup = input.trim().toLowerCase();
-  const filteredBook = viewBooks.filter((book) => {
+  const filteredBook = viewBooks.filter((book): boolean => {
     const foundBook = book.title.toLowerCase().includes(inputCleanup);
     return foundBook;
   });
